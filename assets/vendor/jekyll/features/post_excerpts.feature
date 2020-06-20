@@ -6,17 +6,17 @@ Feature: Post excerpts
   So just give them a taste
 
   Scenario: An excerpt without a layout
-    Given I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
+    Given I have an "vistageneral.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
     And I have a _posts directory
     And I have the following posts:
       | title  | date       | layout | content             |
       | entry1 | 2007-12-31 | post   | content for entry1. |
     When I run jekyll build
     Then the _site directory should exist
-    And I should see exactly "<p>content for entry1.</p>" in "_site/index.html"
+    And I should see exactly "<p>content for entry1.</p>" in "_site/vistageneral.html"
 
   Scenario: An excerpt from a post with a layout
-    Given I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
+    Given I have an "vistageneral.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
     And I have a _posts directory
     And I have a _layouts directory
     And I have a post layout that contains "{{ page.excerpt }}"
@@ -30,10 +30,10 @@ Feature: Post excerpts
     And the _site/2007/12/31 directory should exist
     And the "_site/2007/12/31/entry1.html" file should exist
     And I should see exactly "<p>content for entry1.</p>" in "_site/2007/12/31/entry1.html"
-    And I should see exactly "<p>content for entry1.</p>" in "_site/index.html"
+    And I should see exactly "<p>content for entry1.</p>" in "_site/vistageneral.html"
 
   Scenario: An excerpt from a post with a layout which has context
-    Given I have an "index.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
+    Given I have an "vistageneral.html" page that contains "{% for post in site.posts %}{{ post.excerpt }}{% endfor %}"
     And I have a _posts directory
     And I have a _layouts directory
     And I have a post layout that contains "<html><head></head><body>{{ page.excerpt }}</body></html>"
@@ -46,5 +46,5 @@ Feature: Post excerpts
     And the _site/2007/12 directory should exist
     And the _site/2007/12/31 directory should exist
     And the "_site/2007/12/31/entry1.html" file should exist
-    And I should see "<p>content for entry1.</p>" in "_site/index.html"
+    And I should see "<p>content for entry1.</p>" in "_site/vistageneral.html"
     And I should see "<html><head></head><body><p>content for entry1.</p>\n\n</body></html>" in "_site/2007/12/31/entry1.html"

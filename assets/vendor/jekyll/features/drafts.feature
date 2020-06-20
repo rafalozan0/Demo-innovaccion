@@ -15,7 +15,7 @@ Feature: Draft Posts
 
   Scenario: Don't preview a draft
     Given I have a configuration file with "permalink" set to "none"
-    And I have an "index.html" page that contains "Totally index"
+    And I have an "vistageneral.html" page that contains "Totally index"
     And I have a _drafts directory
     And I have the following draft:
       | title  | date       | layout  | content        |
@@ -26,7 +26,7 @@ Feature: Draft Posts
 
   Scenario: Don't preview a draft that is not published
     Given I have a configuration file with "permalink" set to "none"
-    And I have an "index.html" page that contains "Totally index"
+    And I have an "vistageneral.html" page that contains "Totally index"
     And I have a _drafts directory
     And I have the following draft:
       | title  | date       | layout  | published | content        |

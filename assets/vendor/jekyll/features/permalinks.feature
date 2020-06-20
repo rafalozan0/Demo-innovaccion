@@ -21,17 +21,17 @@ Feature: Fancy permalinks
     And I have a configuration file with "permalink" set to "pretty"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Totally wordpress." in "_site/2009/03/27/pretty-permalink-schema/index.html"
+    And I should see "Totally wordpress." in "_site/2009/03/27/pretty-permalink-schema/vistageneral.html"
 
   Scenario: Use pretty permalink schema for pages
-    Given I have an "index.html" page that contains "Totally index"
+    Given I have an "vistageneral.html" page that contains "Totally index"
     And I have an "awesome.html" page that contains "Totally awesome"
     And I have an "sitemap.xml" page that contains "Totally uhm, sitemap"
     And I have a configuration file with "permalink" set to "pretty"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Totally index" in "_site/index.html"
-    And I should see "Totally awesome" in "_site/awesome/index.html"
+    And I should see "Totally index" in "_site/vistageneral.html"
+    And I should see "Totally awesome" in "_site/awesome/vistageneral.html"
     And I should see "Totally uhm, sitemap" in "_site/sitemap.xml"
 
   Scenario: Use custom permalink schema with prefix
@@ -42,7 +42,7 @@ Feature: Fancy permalinks
     And I have a configuration file with "permalink" set to "/blog/:year/:month/:day/:title/"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Totally custom." in "_site/blog/2009/03/27/custom-permalink-schema/index.html"
+    And I should see "Totally custom." in "_site/blog/2009/03/27/custom-permalink-schema/vistageneral.html"
 
   Scenario: Use custom permalink schema with category
     Given I have a _posts directory
@@ -72,7 +72,7 @@ Feature: Fancy permalinks
     When I run jekyll build
     Then the _site directory should exist
     And the _site/custom/posts/1 directory should exist
-    And I should see "bla bla" in "_site/custom/posts/1/index.html"
+    And I should see "bla bla" in "_site/custom/posts/1/vistageneral.html"
 
   Scenario: Use per-post ending in .html
     Given I have a _posts directory

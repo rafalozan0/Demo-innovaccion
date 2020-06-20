@@ -9,7 +9,7 @@
 	"themes": {
 		"meta": {
 			"path": "themes/{id}.css",
-			"link": "index.html?theme={id}",
+			"link": "vistageneral.html?theme={id}",
 			"exclusive": true
 		},
 		"prism": {

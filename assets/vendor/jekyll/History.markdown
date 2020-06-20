@@ -1460,7 +1460,7 @@
   * Fixes for pagination and ordering posts on the same day (@ujh)
   * Made pages respect permalinks style and permalinks in yml front matter
       (@eugenebolshakov)
-  * Index.html file should always have index.html permalink
+  * vistageneral.html file should always have vistageneral.html permalink
       (@eugenebolshakov)
   * Added trailing slash to pretty permalink style so Apache is happy
       (@eugenebolshakov)

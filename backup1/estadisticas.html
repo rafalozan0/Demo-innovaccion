@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.">
+  <meta name="author" content="Remi">
+  <title>Remi</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <a class="navbar-brand" href="javascript:void(0)">
+          <img src="assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="vistageneral.html">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Vista general</span>
+              </a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="reporte.html">
+                  <i class="ni ni-bullet-list-67 text-orange"></i>
+                  <span class="nav-link-text">Reportes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="inventario.html">
+                <i class="ni ni-archive-2 text-orange"></i>
+                <span class="nav-link-text">Inventario</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="agenda.html">
+                <i class="ni ni-calendar-grid-58 text-primary"></i>
+                <span class="nav-link-text">Agenda de proovedores</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="estadisticas.html">
+                <i class="ni ni-chart-bar-32 text-yellow"></i>
+                <span class="nav-link-text">Estadisticas de fallas</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ranking.html">
+                <i class="ni ni-fat-remove text-default"></i>
+                <span class="nav-link-text">Ranking de fallas en equipo.</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="acercade.html">
+                <i class="ni ni-favourite-28 text-info"></i>
+                <span class="nav-link-text">Acerca de</span>
+              </a>
+            </li>
+            </ul>   
+          </ul>
+          <!-- Divider -->
+          <hr class="my-3">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+<!-- MENU DE HAMBURGUESA -->
+<div>
+  <!-- Topnav -->
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+<div class="container-fluid"></div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+  <!-- Navbar links -->
+<ul class="navbar-nav align-items-center  ml-md-auto ">
+<li class="nav-item d-xl-none"></li>
+<!-- Sidenav toggler -->
+<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+<div class="sidenav-toggler-inner">
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+</div>
+</div>
+</li>
+</div>
+<!-- FIN DE MENU DE HAMBUERGUESA -->
+  <!-- Inicio de la pagina - no tocar nada -->
+<!-- Main content -->
+<div class="main-content" id="panel">
+  <!-- Inicio del diseño responsivo -->
+  <!-- Topnav -->
+  <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar links -->
+        <ul class="navbar-nav align-items-center  ml-md-auto ">
+          <li class="nav-item d-xl-none">
+            <!-- Sidenav toggler -->
+            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </div>
+          </li>
+            <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden"> 
+              <!-- Hasta aqui funciona el diseño responsivo -->
+<!-- Divider -->
+<hr class="my-3">      
+</div>
+</div>
+</div>
+</nav>
+ <!-- Main content -->
+ <div class="main-content" id="panel">
+ <!-- Header -->
+ <div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <!-- Cambiar por el titulo de cada pagina -->
+          <h6 class="h2 text-white d-inline-block mb-0">Estadisticas</h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="card border-0">
+        <!-- A partir de aqui se añade el nuevo contenido -->
+        <!-- INICIO -->
+        <h1>Hola Mundo!</h1>
+        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed quam ac nibh cursus molestie. Maecenas lobortis vehicula erat, sit amet condimentum nisl. Suspendisse placerat nibh et metus lacinia feugiat. In posuere tellus eget libero posuere sodales. Maecenas dictum tellus quis sem imperdiet gravida. Curabitur feugiat dolor ex, et interdum quam ultrices eu. Quisque sed est est. Fusce pellentesque massa a neque finibus, vel vulputate tortor lobortis. Vestibulum sapien sem, molestie eget massa sit amet, posuere pretium sapien. Duis tristique suscipit vehicula. Pellentesque gravida tincidunt tortor eu ullamcorper.
+
+          Cras sem erat, euismod sed lectus et, sollicitudin sodales urna. Vestibulum condimentum condimentum nisi, ut maximus urna mollis sed. Cras scelerisque tempus pellentesque. Donec scelerisque ultricies dolor at faucibus. Ut in porttitor lectus. Quisque libero orci, placerat ac eleifend id, consequat ut magna. Proin urna ligula, volutpat quis ligula nec, aliquam iaculis massa. Maecenas ultrices viverra interdum. Nam tempor ante gravida fermentum hendrerit. Phasellus tincidunt eleifend placerat. Morbi semper justo quis justo feugiat, at interdum augue fringilla. Nunc erat eros, auctor vel facilisis sit amet, porttitor non ex. Nullam mollis risus eu elementum imperdiet. In vehicula nunc non purus ornare, non rhoncus mauris faucibus. Ut vehicula turpis at eleifend venenatis.
+          
+          Cras consectetur libero vitae diam facilisis, vitae pulvinar elit blandit. Nullam cursus, metus sed ultricies lobortis, turpis metus sagittis leo, ac rhoncus libero nibh a diam. Nullam vel elementum tellus. Vivamus at placerat ipsum, ac suscipit sapien. Cras sed fermentum leo, in pretium est. Donec vitae tellus ut tortor gravida tristique. Nam volutpat molestie leo, et accumsan turpis condimentum ac. Vivamus at scelerisque eros, sit amet scelerisque dolor. Ut mattis congue ipsum. Pellentesque scelerisque nulla sed pretium maximus. In pretium odio ut augue dictum, non aliquet dolor commodo. Donec sed ipsum lacus. Sed at felis in massa tempor gravida.
+          
+          Aliquam nulla nisi, lacinia quis ullamcorper nec, maximus sed sem. Etiam fermentum luctus tristique. Duis a mi id dui luctus laoreet. Praesent lectus ipsum, suscipit ut neque et, malesuada vestibulum turpis. Nam quis dolor ac ex viverra sagittis nec blandit quam. Aliquam metus enim, viverra sodales ultricies vitae, ornare a quam. Quisque imperdiet gravida felis non convallis. Mauris euismod faucibus enim. Nulla sagittis sapien tortor, eu vestibulum lectus scelerisque placerat.
+          
+          Curabitur auctor non turpis ac consequat. Sed laoreet luctus congue. Integer ac consequat turpis. In in massa in mauris faucibus suscipit. Sed mattis pharetra libero vitae pulvinar. Cras condimentum, felis pellentesque laoreet lacinia, eros risus laoreet ligula, ut porttitor elit nibh quis urna. Aenean a pretium urna. Curabitur at pellentesque felis, at euismod tellus. Nullam suscipit elementum odio ut accumsan. Vestibulum commodo tortor ac dui vulputate tincidunt. Sed viverra tempus mattis. Nunc ornare nisi neque, at sodales velit finibus at.</h1>
+
+
+          <!-- FINAL -->
+          <!-- Fin de la seccion de nuevo contenido -->
+        
+      <!-- Footer -->
+       <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2020 <a class="font-weight-bold ml-1" target="_blank">Remi</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="assets/js/argon.js?v=1.2.0"></script>
+</body>
+
+</html>

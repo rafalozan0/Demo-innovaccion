@@ -42,19 +42,19 @@ Feature: Include tags
     | key           | value             |
     | include_file1 | snippet.html      |
     | include_file2 | parametrized.html |
-    And I have an "index.html" page that contains "{% include {{site.include_file1}} %} that {% include {{site.include_file2}} what='parameters' %}"
+    And I have an "vistageneral.html" page that contains "{% include {{site.include_file1}} %} that {% include {{site.include_file2}} what='parameters' %}"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "a snippet that works with parameters" in "_site/index.html"
+    And I should see "a snippet that works with parameters" in "_site/vistageneral.html"
 
   Scenario: Include a variable file in a loop
     Given I have an _includes directory
     And I have an "_includes/one.html" file that contains "one"
     And I have an "_includes/two.html" file that contains "two"
-    And I have an "index.html" page with files "[one.html, two.html]" that contains "{% for file in page.files %}{% include {{file}} %} {% endfor %}"
+    And I have an "vistageneral.html" page with files "[one.html, two.html]" that contains "{% for file in page.files %}{% include {{file}} %} {% endfor %}"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "one two" in "_site/index.html"
+    And I should see "one two" in "_site/vistageneral.html"
 
   Scenario: Include a file with variables and filters
     Given I have an _includes directory
@@ -62,10 +62,10 @@ Feature: Include tags
     And I have a configuration file with:
     | key          | value |
     | include_file | one   |
-    And I have an "index.html" page that contains "{% include {{ site.include_file | append: '.html' }} %}"
+    And I have an "vistageneral.html" page that contains "{% include {{ site.include_file | append: '.html' }} %}"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "one included" in "_site/index.html"
+    And I should see "one included" in "_site/vistageneral.html"
 
   Scenario: Include a file with partial variables
     Given I have an _includes directory
@@ -73,7 +73,7 @@ Feature: Include tags
     And I have a configuration file with:
     | key          | value |
     | include_file | one   |
-    And I have an "index.html" page that contains "{% include {{ site.include_file }}.html %}"
+    And I have an "vistageneral.html" page that contains "{% include {{ site.include_file }}.html %}"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "one included" in "_site/index.html"
+    And I should see "one included" in "_site/vistageneral.html"

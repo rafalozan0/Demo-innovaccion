@@ -12,11 +12,11 @@ Feature: Data
       - name: salt
         price: 2.5
       """
-    And I have an "index.html" page that contains "{% for product in site.data.products %}{{product.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for product in site.data.products %}{{product.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "sugar" in "_site/index.html"
-    And I should see "salt" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "sugar" in "_site/vistageneral.html"
+    And I should see "salt" in "_site/vistageneral.html"
 
   Scenario: autoload *.yml files in _data directory
     Given I have a _data directory
@@ -27,11 +27,11 @@ Feature: Data
       - name: Leon
         age: 34
       """
-    And I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Jack" in "_site/index.html"
-    And I should see "Leon" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Jack" in "_site/vistageneral.html"
+    And I should see "Leon" in "_site/vistageneral.html"
 
   Scenario: autoload *.json files in _data directory
     Given I have a _data directory
@@ -39,11 +39,11 @@ Feature: Data
       """
       [{"name": "Jack", "age": 28},{"name": "Leon", "age": 34}]
       """
-    And I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Jack" in "_site/index.html"
-    And I should see "Leon" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Jack" in "_site/vistageneral.html"
+    And I should see "Leon" in "_site/vistageneral.html"
 
   Scenario: autoload *.csv files in _data directory
     Given I have a _data directory
@@ -53,11 +53,11 @@ Feature: Data
       Jack,28
       Leon,34
       """
-    And I have an "index.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for member in site.data.members %}{{member.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Jack" in "_site/index.html"
-    And I should see "Leon" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Jack" in "_site/vistageneral.html"
+    And I should see "Leon" in "_site/vistageneral.html"
 
   Scenario: autoload *.yml files in _data directory with space in file name
     Given I have a _data directory
@@ -68,11 +68,11 @@ Feature: Data
       - name: Leon
         age: 34
       """
-    And I have an "index.html" page that contains "{% for member in site.data.team_members %}{{member.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for member in site.data.team_members %}{{member.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Jack" in "_site/index.html"
-    And I should see "Leon" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Jack" in "_site/vistageneral.html"
+    And I should see "Leon" in "_site/vistageneral.html"
 
   Scenario: autoload *.yaml files in subdirectories in _data directory
     Given I have a _data directory
@@ -81,10 +81,10 @@ Feature: Data
       """
       name: Dairy Products
       """
-    And I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}"
+    And I have an "vistageneral.html" page that contains "{{ site.data.categories.dairy.name }}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Dairy Products" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Dairy Products" in "_site/vistageneral.html"
 
   Scenario: folders should have precedence over files with the same name
     Given I have a _data directory
@@ -98,10 +98,10 @@ Feature: Data
       dairy:
         name: Should not display this
       """
-    And I have an "index.html" page that contains "{{ site.data.categories.dairy.name }}"
+    And I have an "vistageneral.html" page that contains "{{ site.data.categories.dairy.name }}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Dairy Products" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Dairy Products" in "_site/vistageneral.html"
 
   Scenario: should be backward compatible with site.data in _config.yml
     Given I have a "_config.yml" file with content:
@@ -112,8 +112,8 @@ Feature: Data
         - name: Leon
           age: 34
       """
-    And I have an "index.html" page that contains "{% for member in site.data %}{{member.name}}{% endfor %}"
+    And I have an "vistageneral.html" page that contains "{% for member in site.data %}{{member.name}}{% endfor %}"
     When I run jekyll build
-    Then the "_site/index.html" file should exist
-    And I should see "Jack" in "_site/index.html"
-    And I should see "Leon" in "_site/index.html"
+    Then the "_site/vistageneral.html" file should exist
+    And I should see "Jack" in "_site/vistageneral.html"
+    And I should see "Leon" in "_site/vistageneral.html"

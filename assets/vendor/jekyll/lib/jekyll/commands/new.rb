@@ -43,7 +43,7 @@ module Jekyll
         def create_blank_site(path)
           Dir.chdir(path) do
             FileUtils.mkdir(%w(_layouts _posts _drafts))
-            FileUtils.touch("index.html")
+            FileUtils.touch("vistageneral.html")
           end
         end
 

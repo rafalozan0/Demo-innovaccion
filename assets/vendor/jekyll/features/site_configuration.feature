@@ -5,18 +5,18 @@ Feature: Site configuration
 
   Scenario: Change source directory
     Given I have a blank site in "_sourcedir"
-    And I have an "_sourcedir/index.html" file that contains "Changing source directory"
+    And I have an "_sourcedir/vistageneral.html" file that contains "Changing source directory"
     And I have a configuration file with "source" set to "_sourcedir"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Changing source directory" in "_site/index.html"
+    And I should see "Changing source directory" in "_site/vistageneral.html"
 
   Scenario: Change destination directory
-    Given I have an "index.html" file that contains "Changing destination directory"
+    Given I have an "vistageneral.html" file that contains "Changing destination directory"
     And I have a configuration file with "destination" set to "_mysite"
     When I run jekyll build
     Then the _mysite directory should exist
-    And I should see "Changing destination directory" in "_mysite/index.html"
+    And I should see "Changing destination directory" in "_mysite/vistageneral.html"
 
   Scenario Outline: Similarly named source and destination
     Given I have a blank site in "<source>"
@@ -27,7 +27,7 @@ Feature: Site configuration
     | destination | <dest>   |
     When I run jekyll build
     Then the <source> directory should exist
-    And the "<dest>/index.html" file should <file_exist> exist
+    And the "<dest>/vistageneral.html" file should <file_exist> exist
     And I should see "markdown" in "<source>/index.md"
 
     Examples:
@@ -42,23 +42,23 @@ Feature: Site configuration
   Scenario: Exclude files inline
     Given I have an "Rakefile" file that contains "I want to be excluded"
     And I have an "README" file that contains "I want to be excluded"
-    And I have an "index.html" file that contains "I want to be included"
+    And I have an "vistageneral.html" file that contains "I want to be included"
     And I have a configuration file with "exclude" set to "['Rakefile', 'README']"
     When I run jekyll build
-    Then I should see "I want to be included" in "_site/index.html"
+    Then I should see "I want to be included" in "_site/vistageneral.html"
     And the "_site/Rakefile" file should not exist
     And the "_site/README" file should not exist
 
   Scenario: Exclude files with YAML array
     Given I have an "Rakefile" file that contains "I want to be excluded"
     And I have an "README" file that contains "I want to be excluded"
-    And I have an "index.html" file that contains "I want to be included"
+    And I have an "vistageneral.html" file that contains "I want to be included"
     And I have a configuration file with "exclude" set to:
       | value    |
       | README   |
       | Rakefile |
     When I run jekyll build
-    Then I should see "I want to be included" in "_site/index.html"
+    Then I should see "I want to be included" in "_site/vistageneral.html"
     And the "_site/Rakefile" file should not exist
     And the "_site/README" file should not exist
 
@@ -67,43 +67,43 @@ Feature: Site configuration
     And I have a configuration file with "markdown" set to "rdiscount"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html"
+    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/vistageneral.html"
 
   Scenario: Use Kramdown for markup
     Given I have an "index.markdown" page that contains "[Google](http://google.com)"
     And I have a configuration file with "markdown" set to "kramdown"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html"
+    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/vistageneral.html"
 
   Scenario: Use Redcarpet for markup
     Given I have an "index.markdown" page that contains "[Google](http://google.com)"
     And I have a configuration file with "markdown" set to "redcarpet"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html"
+    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/vistageneral.html"
 
   Scenario: Use Maruku for markup
     Given I have an "index.markdown" page that contains "[Google](http://google.com)"
     And I have a configuration file with "markdown" set to "maruku"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/index.html"
+    And I should see "<a href=\"http://google.com\">Google</a>" in "_site/vistageneral.html"
 
   Scenario: Highlight code with pygments
-    Given I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}"
+    Given I have an "vistageneral.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Hello world!" in "_site/index.html"
-    And I should see "class=\"highlight\"" in "_site/index.html"
+    And I should see "Hello world!" in "_site/vistageneral.html"
+    And I should see "class=\"highlight\"" in "_site/vistageneral.html"
 
   Scenario: Highlight code with rouge
-    Given I have an "index.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}"
+    Given I have an "vistageneral.html" page that contains "{% highlight ruby %} puts 'Hello world!' {% endhighlight %}"
     And I have a configuration file with "highlighter" set to "rouge"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Hello world!" in "_site/index.html"
-    And I should see "class=\"highlight\"" in "_site/index.html"
+    And I should see "Hello world!" in "_site/vistageneral.html"
+    And I should see "class=\"highlight\"" in "_site/vistageneral.html"
 
   Scenario: Rouge renders code block once
     Given I have a configuration file with "highlighter" set to "rouge"
@@ -118,7 +118,7 @@ Feature: Site configuration
     Given I have a _layouts directory
     And I have a page layout that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}"
     And I have a post layout that contains "Post Layout: {{ content }}"
-    And I have an "index.html" page with layout "page" that contains "site index page"
+    And I have an "vistageneral.html" page with layout "page" that contains "site index page"
     And I have a configuration file with:
       | key         | value        |
       | time        | 2010-01-01   |
@@ -130,7 +130,7 @@ Feature: Site configuration
       | entry2 | 2020-01-31 | post   | content for entry2. |
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Page Layout: 1 on 2010-01-01" in "_site/index.html"
+    And I should see "Page Layout: 1 on 2010-01-01" in "_site/vistageneral.html"
     And I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html"
     And the "_site/2020/01/31/entry2.html" file should not exist
 
@@ -138,7 +138,7 @@ Feature: Site configuration
     Given I have a _layouts directory
     And I have a page layout that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}"
     And I have a post layout that contains "Post Layout: {{ content }}"
-    And I have an "index.html" page with layout "page" that contains "site index page"
+    And I have an "vistageneral.html" page with layout "page" that contains "site index page"
     And I have a configuration file with:
       | key         | value        |
       | time        | 2010-01-01   |
@@ -150,7 +150,7 @@ Feature: Site configuration
       | entry2 | 2020-01-31 | post   | content for entry2. |
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Page Layout: 2 on 2010-01-01" in "_site/index.html"
+    And I should see "Page Layout: 2 on 2010-01-01" in "_site/vistageneral.html"
     And I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html"
     And I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entry2.html"
 
@@ -158,7 +158,7 @@ Feature: Site configuration
       Given I have a _layouts directory
       And I have a page layout that contains "Page Layout: {{ site.posts.size }}"
       And I have a post layout that contains "Post Layout: {{ content }} built at {{ page.date | date_to_xmlschema }}"
-      And I have an "index.html" page with layout "page" that contains "site index page"
+      And I have an "vistageneral.html" page with layout "page" that contains "site index page"
       And I have a configuration file with:
         | key         | value            |
         | timezone    | America/New_York |
@@ -169,7 +169,7 @@ Feature: Site configuration
         | entry2    | 2013-04-10 03:14 -0400 | post    | content for entry2. |
       When I run jekyll build
       Then the _site directory should exist
-      And I should see "Page Layout: 2" in "_site/index.html"
+      And I should see "Page Layout: 2" in "_site/vistageneral.html"
       And I should see "Post Layout: <p>content for entry1.</p>\n built at 2013-04-09T23:22:00-04:00" in "_site/2013/04/09/entry1.html"
       And I should see "Post Layout: <p>content for entry2.</p>\n built at 2013-04-10T03:14:00-04:00" in "_site/2013/04/10/entry2.html"
 
@@ -177,7 +177,7 @@ Feature: Site configuration
       Given I have a _layouts directory
       And I have a page layout that contains "Page Layout: {{ site.posts.size }}"
       And I have a post layout that contains "Post Layout: {{ content }} built at {{ page.date | date_to_xmlschema }}"
-      And I have an "index.html" page with layout "page" that contains "site index page"
+      And I have an "vistageneral.html" page with layout "page" that contains "site index page"
       And I have a configuration file with:
         | key         | value               |
         | timezone    | Pacific/Honolulu    |
@@ -188,7 +188,7 @@ Feature: Site configuration
         | entry2    | 2013-04-10 03:14 +0400 | post    | content for entry2. |
       When I run jekyll build
       Then the _site directory should exist
-      And I should see "Page Layout: 2" in "_site/index.html"
+      And I should see "Page Layout: 2" in "_site/vistageneral.html"
       And the "_site/2013/04/09/entry1.html" file should exist
       And the "_site/2013/04/09/entry2.html" file should exist
       And I should see "Post Layout: <p>content for entry1.</p>\n built at 2013-04-09T09:22:00-10:00" in "_site/2013/04/09/entry1.html"
@@ -226,7 +226,7 @@ Feature: Site configuration
     Given I have a _theme directory
     And I have a page theme that contains "Page Layout: {{ site.posts.size }} on {{ site.time | date: "%Y-%m-%d" }}"
     And I have a post theme that contains "Post Layout: {{ content }}"
-    And I have an "index.html" page with layout "page" that contains "site index page"
+    And I have an "vistageneral.html" page with layout "page" that contains "site index page"
     And I have a configuration file with:
       | key         | value        |
       | time        | 2010-01-01   |
@@ -239,14 +239,14 @@ Feature: Site configuration
       | entry2 | 2020-01-31 | post   | content for entry2. |
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "Page Layout: 2 on 2010-01-01" in "_site/index.html"
+    And I should see "Page Layout: 2 on 2010-01-01" in "_site/vistageneral.html"
     And I should see "Post Layout: <p>content for entry1.</p>" in "_site/2007/12/31/entry1.html"
     And I should see "Post Layout: <p>content for entry2.</p>" in "_site/2020/01/31/entry2.html"
 
   Scenario: arbitrary file reads via layouts
-    Given I have an "index.html" page with layout "page" that contains "FOO"
+    Given I have an "vistageneral.html" page with layout "page" that contains "FOO"
     And I have a "_config.yml" file that contains "layouts: '../../../../../../../../../../../../../../usr/include'"
     When I run jekyll build
     Then the _site directory should exist
-    And I should see "FOO" in "_site/index.html"
-    And I should not see " " in "_site/index.html"
+    And I should see "FOO" in "_site/vistageneral.html"
+    And I should not see " " in "_site/vistageneral.html"

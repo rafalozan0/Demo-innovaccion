@@ -226,14 +226,14 @@ Feature: Post data
 
   Scenario: Disable a post from being published
     Given I have a _posts directory
-    And I have an "index.html" file that contains "Published!"
+    And I have an "vistageneral.html" file that contains "Published!"
     And I have the following post:
       | title     | date       | layout | published | content                 |
       | Star Wars | 2009-03-27 | simple | false     | Luke, I am your father. |
     When I run jekyll build
     Then the _site directory should exist
     And the "_site/2009/03/27/star-wars.html" file should not exist
-    And I should see "Published!" in "_site/index.html"
+    And I should see "Published!" in "_site/vistageneral.html"
 
   Scenario: Use a custom variable
     Given I have a _posts directory

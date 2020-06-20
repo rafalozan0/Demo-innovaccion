@@ -6,7 +6,7 @@ Feature: Site pagination
   Scenario Outline: Paginate with N posts per page
     Given I have a configuration file with "paginate" set to "<num>"
     And I have a _layouts directory
-    And I have an "index.html" page that contains "{{ paginator.posts.size }}"
+    And I have an "vistageneral.html" page that contains "{{ paginator.posts.size }}"
     And I have a _posts directory
     And I have the following posts:
       | title     | date       | layout  | content                                |
@@ -16,9 +16,9 @@ Feature: Site pagination
       | Wargames4 | 2009-06-27 | default | The only winning move is not to play4. |
     When I run jekyll build
     Then the _site/page<exist> directory should exist
-    And the "_site/page<exist>/index.html" file should exist
-    And I should see "<posts>" in "_site/page<exist>/index.html"
-    And the "_site/page<not_exist>/index.html" file should not exist
+    And the "_site/page<exist>/vistageneral.html" file should exist
+    And I should see "<posts>" in "_site/page<exist>/vistageneral.html"
+    And the "_site/page<not_exist>/vistageneral.html" file should not exist
 
     Examples:
       | num | exist | posts | not_exist |
@@ -33,7 +33,7 @@ Feature: Site pagination
       | paginate_path | /blog/page-:num                |
       | permalink     | /blog/:year/:month/:day/:title |
     And I have a blog directory
-    And I have an "blog/index.html" page that contains "{{ paginator.posts.size }}"
+    And I have an "blog/vistageneral.html" page that contains "{{ paginator.posts.size }}"
     And I have a _posts directory
     And I have the following posts:
       | title     | date       | layout  | content                                |
@@ -43,9 +43,9 @@ Feature: Site pagination
       | Wargames4 | 2009-06-27 | default | The only winning move is not to play4. |
     When I run jekyll build
     Then the _site/blog/page-<exist> directory should exist
-    And the "_site/blog/page-<exist>/index.html" file should exist
-    And I should see "<posts>" in "_site/blog/page-<exist>/index.html"
-    And the "_site/blog/page-<not_exist>/index.html" file should not exist
+    And the "_site/blog/page-<exist>/vistageneral.html" file should exist
+    And I should see "<posts>" in "_site/blog/page-<exist>/vistageneral.html"
+    And the "_site/blog/page-<not_exist>/vistageneral.html" file should not exist
 
     Examples:
       | exist | posts | not_exist |
@@ -53,15 +53,15 @@ Feature: Site pagination
       | 3     | 1     | 6         |
       | 4     | 1     | 7         |
 
-  Scenario Outline: Setting a custom pagination path without an index.html in it
+  Scenario Outline: Setting a custom pagination path without an vistageneral.html in it
     Given I have a configuration file with:
       | key           | value                          |
       | paginate      | 1                              |
       | paginate_path | /blog/page/:num                |
       | permalink     | /blog/:year/:month/:day/:title |
     And I have a blog directory
-    And I have an "blog/index.html" page that contains "{{ paginator.posts.size }}"
-    And I have an "index.html" page that contains "Don't pick me!"
+    And I have an "blog/vistageneral.html" page that contains "{{ paginator.posts.size }}"
+    And I have an "vistageneral.html" page that contains "Don't pick me!"
     And I have a _posts directory
     And I have the following posts:
       | title     | date       | layout  | content                                |
@@ -71,9 +71,9 @@ Feature: Site pagination
       | Wargames4 | 2009-06-27 | default | The only winning move is not to play4. |
     When I run jekyll build
     Then the _site/blog/page/<exist> directory should exist
-    And the "_site/blog/page/<exist>/index.html" file should exist
-    And I should see "<posts>" in "_site/blog/page/<exist>/index.html"
-    And the "_site/blog/page/<not_exist>/index.html" file should not exist
+    And the "_site/blog/page/<exist>/vistageneral.html" file should exist
+    And I should see "<posts>" in "_site/blog/page/<exist>/vistageneral.html"
+    And the "_site/blog/page/<not_exist>/vistageneral.html" file should not exist
 
     Examples:
       | exist | posts | not_exist |
