@@ -152,22 +152,25 @@
         <div class="col">
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
-            <?php
-// PHP Data Objects(PDO) Sample Code:
-try {
-    $conn = new PDO("sqlsrv:server = tcp:remi-server.database.windows.net,1433; Database = Remi_database", "innova8662", "innova86#");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
- 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "innova8662", "pwd" => "innova86#", "Database" => "Remi_database", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:remi-server.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
-?>
+              <?php
+                include("abrir_conexion.php");
+
+                if(isset($_POST['btn_registrar']))
+                {
+                  $IDReporte = $_POST['IDReporte'];
+                  $IDTipoReporte = $_POST['IDTipoReporte'];
+                  $Descripcion = $_POST['Descripcion'];
+                  $idEquipo = $_POST['idEquipo'];
+
+                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (IDReporte,IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
+
+                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
+                  echo "<br<br><br><br<br><br><font><center><b><h3>El reporte se completó de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
+
+                }
+
+                include("cerrar_conexion.php");
+              ?>
               <center><a href="reporte.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
             
                      

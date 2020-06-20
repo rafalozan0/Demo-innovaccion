@@ -166,7 +166,7 @@
                   $idTipoUsuario = $_POST['idTipoUsuario'];
                   $idTelefono = $_POST['idTelefono'];
 
-                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (idUsuario,nombre,apPaterno,apMaterno,pasword,idArea,idTipoUsuario,idTelefono) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$password','$idArea','$idTipoUsuario','$idTelefono)");      
+                  mysqli_query($conexion, "INSERT INTO $tabla_Remi_database (idUsuario,nombre,apPaterno,apMaterno,pasword,idArea,idTipoUsuario,idTelefono) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$password','$idArea','$idTipoUsuario','$idTelefono)");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Usuario registrado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>El usuario se dió de alta en el sistema de manera satisfactoria. Para registrar otro usuario pulse el botón siguiente.</h3></b></center></font><br><br>";
