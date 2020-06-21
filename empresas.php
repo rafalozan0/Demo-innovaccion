@@ -144,13 +144,13 @@
                   if( $conn ) 
                   {
                     echo "Conexión establecida.<br />";
+                    $sql = "exec agregarMarca @marca='$marca', @idTelefono='$idTelefono', @direccion='$direccion';";
                   }
                   else
                   {
                     echo "Conexión no se pudo establecer.<br />";
                   }
                 
-                  $sql = "exec agregarMarca @marca='$marca', @idTelefono='$idTelefono', @direccion='$direccion';";
                   //mysqli_query($conn, "INSERT INTO $tabla_db4 (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Registro generado exitosamente!</h1></b></center></font>";
