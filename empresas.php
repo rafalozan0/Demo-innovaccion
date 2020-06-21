@@ -35,7 +35,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="vistageneral.html">
+              <a class="nav-link" href="index.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -104,28 +104,6 @@
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -157,21 +135,21 @@
 
                 if(isset($_POST['btn_registrar']))
                 {
-                  $IDReporte = $_POST['IDReporte'];
-                  $IDTipoReporte = $_POST['IDTipoReporte'];
-                  $Descripcion = $_POST['Descripcion'];
-                  $idEquipo = $_POST['idEquipo'];
+                  $marca = $_POST['marca'];
+                  $idTelefono = $_POST['idTelefono'];
+                  $direccion = $_POST['direccion'];
 
-                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (IDReporte,IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
+                  sqlsrv_query($conn, "INSERT INTO Marca (@marca,@idTelefono,@direccion) values ('$marca','$idTelefono','$direccion')");
+                  //mysqli_query($conn, "INSERT INTO $tabla_db4 (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");      
 
-                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
-                  echo "<br<br><br><br<br><br><font><center><b><h3>El reporte se completó de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
+                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Registro generado exitosamente!</h1></b></center></font>";
+                  echo "<br<br><br><br<br><br><font><center><b><h3>La marca se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
 
                 }
 
                 include("cerrar_conexion.php");
               ?>
-              <center><a href="empresas.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
+              <center><a href="empresas.html"><input type="button" value="Registrar marca" class="btn btn-success"></a></center>
             
                      
             </div>

@@ -1,3 +1,3 @@
 <?php
-	mysqli_close($conexion);
+	slqsrv_close($conexion);
 ?>

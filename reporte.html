@@ -36,7 +36,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="vistageneral.html">
+              <a class="nav-link" href="index.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -105,31 +105,6 @@
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
-
-
-  
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -155,19 +130,12 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-
-
-
-
-
-
-
-            
+            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 1300px;"
             <div class="row">
               <div class="col-md-4"></div>
               <div class="col-md-4">        
                 <center>
-                <font><center><b><h1>Generar reporte</h1></b></center></font>
+                  <font><center><b><h1>Generar reporte</h1></b></center></font>
                   <font><center><h4>Ingrese los datos para generar el reporte</h4></center></font><br>
                   <form method="POST" action="reporte.php" >
 
@@ -183,6 +151,36 @@
                     <div class="form-group">
                       <center><label for="tel">Id equipo: </label></center>
                       <input type="text" required name="idEquipo" placeholder="Ingrese la clave del equipo..." class="form-control" id="tel">
+                    </div>
+                    <div class="form-group">
+                      <center><label for="nombre">Hora de reporte: </label></center>
+                      <input type="text" required name="horaRep" placeholder="Ingrese la hora..." class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                      <center><label for="nombre">Id del área: </label></center>
+                      <input type="text" required name="idArea" placeholder="Ingrese la clave del área..." class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                      <center><label for="nombre">Fecha de reporte: </label></center>
+                      <input type="text" required name="fechaRep" placeholder="Ingrese la fecha..." class="form-control" >
+                    </div>
+                    <div class="form-group">
+                      <center><label for="nombre">idCondReporte: </label></center>
+                      <input type="text" required name="idCondReporte" placeholder="Ingrese la clave..." class="form-control" >
+                    </div>
+                    <div class="form-group">
+                      <center><label for="nombre">Id del usuario que reporta: </label></center>
+                      <input type="text" required name="IDUsuarioReporte" placeholder="Ingrese la clave..." class="form-control" >
+                    </div>
+                    <div class="form-group">
+                      <center><label for="nombre">Fecha del reporte de mantenimiento: </label></center>
+                      <input type="text" required name="fechaReporteManto" placeholder="Ingrese la fecha..." class="form-control" >
+                    </div>
+                    <div class="form-group">
+                      <center><label for="nombre">Id del usuario asignado: </label></center>
+                      <input type="text" required name="idUsuarioAsig" placeholder="Ingrese la clave..." class="form-control" >
                     </div>
                         
                     <center>

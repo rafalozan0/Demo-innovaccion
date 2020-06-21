@@ -17,7 +17,6 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-  <link rel="stylesheet" href="assets/css/estiloformulario.css" type="text/css">
 </head>
 
 <body>
@@ -65,6 +64,7 @@
               <span class="nav-link-text">Usuarios</span>
               </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="inventario.html">
                 <i class="ni ni-archive-2 text-orange"></i>
@@ -115,7 +115,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Registro de equipos</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Registrar equipos</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               </nav>
             </div>
@@ -129,91 +129,39 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 1600px;"
-            <div class="row">
-              <div class="col-md-4"></div>
-              <div class="col-md-4">        
-            <center>              
-                <font><center><b><h1>Registrar equipos</h1></b></center></font>
-                <font><h4>Ingrese los datos para dar de alta los equipos en el sistema</h4></font><br>
+            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
+              <?php
+                include("abrir_conexion.php");
 
-                <form class="f1" method="POST" action="equipos.php">
+                if(isset($_POST['btn_registrar']))
+                {
+                  $NumeroSerie = $_POST['NumeroSerie'];
+                  $Modelo = $_POST['Modelo'];
+                  $IDNivelRiesgo = $_POST['IDNivelRiesgo'];
+                  $IDEquipoArea = $_POST['IDEquipoArea'];
+                  $claveCB= $_POST['claveCB'];
+                  $nombre = $_POST['nombre'];
+                  $descripcion = $_POST['descripcion'];
+                  $FechaExpGarantia = $_POST['FechaExpGarantia'];
+                  $idStatus = $_POST['idStatus'];
+                  $nivelPrioridad = $_POST['nivelPrioridad'];
+                  $idMarca = $_POST['idMarca'];
+                  $idTipo = $_POST['idTipo'];
+                  $cantidad = $_POST['cantidad'];
+                               
+                  sqlsrv_query($conn, "INSERT INTO Equipo (@NumeroSerie,@Modelo,@IDNivelRiesgo,@IDEquipoArea,@claveCB,@nombre,@descripcion,@FechaExpGarantia,@idStatus,@nivelPrioridad,@idMarca,@idTipo,@IDNivelRiesgo,@cantidad) values ('$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$idStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");
+                  //mysqli_query($conexion, "INSERT INTO $tabla_db2 (IDEquipo,NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,IdStatus,nivelPrioridad,idMarca,idTipo,IDNivelRiesgo,cantidad) values ('$IDEquipo','$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$IdStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");      
 
-                <div class="form-group">
-                  <center><label for="nombre">Número de serie: </label></center>
-                  <input type="text" required name="NumeroSerie" placeholder="Ingrese el numero de serie..." class="form-control" id="nombre" >
-                </div>
+                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Equipo registrado exitosamente!</h1></b></center></font>";
+                  echo "<br<br><br><br<br><br><font><center><b><h3>El equipo se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
 
-                <div class="form-group">
-                  <center><label for="dir">Modelo: </label></center>
-                  <input type="text" required name="Modelo" placeholder="Escriba el modelo del equipo..." class="form-control" id="dir">
-                </div>
+                }
 
-                <div class="form-group">
-                  <center><label for="tel">Id del nivel de riesgo: </label></center>
-                  <input type="text" required name="IDNivelRiesgo" placeholder="Ingrese la clave del nivel de riesgo.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Id de área del equipo: </label></center>
-                  <input type="text" required name="IDEquipoArea" placeholder="Ingrese la clave del área.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Clave CB: </label></center>
-                  <input type="text" required name="claveCB" placeholder="Ingrese la clave CB.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Nombre del equipo: </label></center>
-                  <input type="text" required name="nombre" placeholder="Ingrese el nombre del equipo..." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Descripción: </label></center>
-                  <input type="text" required name="descripcion" placeholder="Agregue una descripción el equipo.." class="form-control" id="tel">
-                </div>
-           
-                <div class="form-group">
-                  <center><label for="tel">Fecha de expiración de garantía: </label></center>
-                  <input type="text" required name="FechaExpGarantia" placeholder="AAAA-MM-DD" class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Id del estado del equipo: </label></center>
-                  <input type="text" required name="idStatus" placeholder="Ingrese la clave del estado del equipo.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Nivel de prioridad: </label></center>
-                  <input type="text" required name="nivelPrioridad" placeholder="Ingrese el nivel de prioridad.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Id de la marca: </label></center>
-                  <input type="text" required name="idMarca" placeholder="Ingrese la clave de la marca del equipo.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Id del tipo de equipo: </label></center>
-                  <input type="text" required name="idTipo" placeholder="Ingrese la clave del tipo de equipo.." class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <center><label for="tel">Cantidad: </label></center>
-                  <input type="text" required name="cantidad" placeholder="Ingrese la clave del tipo de equipo.." class="form-control" id="tel">
-                </div>
-
-                <center>
-                  <input type="submit" value="Enviar datos" class="btn btn-success" name="btn_registrar">
-                </center>
-
-              </form>
-              
-            </center>
-                </div>
-                <div class="col-md-4"></div>
-              </div>            
+                include("cerrar_conexion.php");
+              ?>
+              <center><a href="registroequipos.html"><input type="button" value="Registrar equipo" class="btn btn-success"></a></center>
+            
+                     
             </div>
           </div>
         </div>
@@ -245,3 +193,4 @@
 </body>
 
 </html>
+
