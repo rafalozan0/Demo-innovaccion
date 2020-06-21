@@ -131,22 +131,35 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
-                include("abrir_conexion.php");
+                $IDTipoReporte = $_POST['IDTipoReporte'];
+                $Descripcion = $_POST['Descripcion'];
+                $idEquipo = $_POST['idEquipo'];
+                $horaRep = $_POST['horaRep'];
+                $idArea = $_POST['idArea'];
+                $fechaRep = $_POST['fechaRep'];
+                $idCondReporte = $_POST['idCondReporte'];
+                $IDUsuarioReporte = $_POST['IDUsuarioReporte'];
+                $fechaReporteMantto = $_POST['fechaReporteMantto'];
+                $idUsuarioAsig = $_POST['idUsuarioAsig'];
 
                 if(isset($_POST['btn_registrar']))
                 {
-                  $IDTipoReporte = $_POST['IDTipoReporte'];
-                  $Descripcion = $_POST['Descripcion'];
-                  $idEquipo = $_POST['idEquipo'];
-                  $horaRep = $_POST['horaRep'];
-                  $idArea = $_POST['idArea'];
-                  $fechaRep = $_POST['fechaRep'];
-                  $idCondReporte = $_POST['idCondReporte'];
-                  $IDUsuarioReporte = $_POST['IDUsuarioReporte'];
-                  $fechaReporteMantto = $_POST['fechaReporteMantto'];
-                  $idUsuarioAsig = $_POST['idUsuarioAsig'];
+                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
+                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
+                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
+                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
+                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                  if( $conn ) 
+                  {
+                    echo "Conexión establecida.<br />";
+                  }
+                  else
+                  {
+                    echo "Conexión no se pudo establecer.<br />";
+                  }
 
-                  sqlsrv_query($conn, "INSERT INTO Reporte (IDTipoReporte, Descripcion, idEquipo, horaRep, idArea, fechaRep, idCondReporte, IDUsuarioReporte, fechaReporteMantto, idUsuarioAsig) values ('$IDTipoReporte','$Descripcion','$idEquipo','$horaRep','$idArea','$fechaRep','$idCondReporte','$IDUsuarioReporte','$fechaReporteMantto','$idUsuarioAsig')");
+                  $sql = "exec insertarReporte ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
+                  
                   //sql_query($conexion, "INSERT INTO $tabla_db1 (IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
@@ -154,7 +167,6 @@
 
                 }
 
-                include("cerrar_conexion.php");
               ?>
               <center><a href="reporte.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
             
