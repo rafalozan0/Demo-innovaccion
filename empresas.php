@@ -138,7 +138,7 @@
                 {
                   $serverName = "remi-server.database.windows.net"; //serverName\instanceName
                   //ESTE ES EL NOMBRE DE LA COMPUTADORA
-                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
+                  $connectionInfo = array( "Database"=>"prueba", "UID"=>"innova8662", "PWD"=>"innova86#");
                   //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
                   $conn = sqlsrv_connect( $serverName, $connectionInfo);
                   if( $conn ) 
