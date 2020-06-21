@@ -145,7 +145,7 @@
                   $idTelefono = $_POST['idTelefono'];
                   $username = $_POST['username'];
 
-                  sqlsrv_query($conn, "INSERT INTO Usuario (@idUsuario, @nombre, @apPaterno, @apMaterno, @contrasena, @idArea, @idTipoUsuario, @idTelefono, @username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");
+                  sqlsrv_query($conn, "INSERT INTO Usuario (idUsuario, nombre, apPaterno, apMaterno, contrasena, idArea, idTipoUsuario, idTelefono, username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");
                   //mysqli_query($conexion, "INSERT INTO $tabla_db3 (idUsuario,nombre,apPaterno,apMaterno,contrasena,idArea,idTipoUsuario,idTelefono,username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Usuario registrado exitosamente!</h1></b></center></font>";

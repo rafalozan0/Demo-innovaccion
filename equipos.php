@@ -149,7 +149,7 @@
                   $idTipo = $_POST['idTipo'];
                   $cantidad = $_POST['cantidad'];
                                
-                  sqlsrv_query($conn, "INSERT INTO Equipo (@NumeroSerie,@Modelo,@IDNivelRiesgo,@IDEquipoArea,@claveCB,@nombre,@descripcion,@FechaExpGarantia,@idStatus,@nivelPrioridad,@idMarca,@idTipo,@IDNivelRiesgo,@cantidad) values ('$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$idStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");
+                  sqlsrv_query($conn, "INSERT INTO Equipo (NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,idStatus,nivelPrioridad,idMarca,idTipo,IDNivelRiesgo,cantidad) values ('$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$idStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");
                   //mysqli_query($conexion, "INSERT INTO $tabla_db2 (IDEquipo,NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,IdStatus,nivelPrioridad,idMarca,idTipo,IDNivelRiesgo,cantidad) values ('$IDEquipo','$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$IdStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Equipo registrado exitosamente!</h1></b></center></font>";

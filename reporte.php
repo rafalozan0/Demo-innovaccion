@@ -146,7 +146,7 @@
                   $fechaReporteMantto = $_POST['fechaReporteMantto'];
                   $idUsuarioAsig = $_POST['idUsuarioAsig'];
 
-                  sqlsrv_query($conn, "INSERT INTO ingresarReporte (@IDTipoReporte, @Descripcion, @idEquipo, @horaRep, @idArea, @fechaRep, @idCondReporte, @IDUsuarioReporte, @fechaReporteMantto, @idUsuarioAsig) values ('$IDTipoReporte','$Descripcion','$idEquipo','$horaRep','$idArea','$fechaRep','$idCondReporte','$IDUsuarioReporte','$fechaReporteMantto','$idUsuarioAsig')");
+                  sqlsrv_query($conn, "INSERT INTO Reporte (IDTipoReporte, Descripcion, idEquipo, horaRep, idArea, fechaRep, idCondReporte, IDUsuarioReporte, fechaReporteMantto, idUsuarioAsig) values ('$IDTipoReporte','$Descripcion','$idEquipo','$horaRep','$idArea','$fechaRep','$idCondReporte','$IDUsuarioReporte','$fechaReporteMantto','$idUsuarioAsig')");
                   //sql_query($conexion, "INSERT INTO $tabla_db1 (IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";

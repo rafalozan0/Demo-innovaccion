@@ -139,7 +139,7 @@
                   $idTelefono = $_POST['idTelefono'];
                   $direccion = $_POST['direccion'];
 
-                  sqlsrv_query($conn, "INSERT INTO Marca (@marca,@idTelefono,@direccion) values ('$marca','$idTelefono','$direccion')");
+                  sqlsrv_query($conn, "INSERT INTO Marca (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");
                   //mysqli_query($conn, "INSERT INTO $tabla_db4 (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Registro generado exitosamente!</h1></b></center></font>";
