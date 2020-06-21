@@ -4,14 +4,14 @@
 	"name" : "Remi",
 	"scope" : "/",
 	"display" : "fullscreen",
-	"start_url" : "https://remi-demo.azurewebsites.net/",
+	"start_url" : "https://prueba-rl.azurewebsites.net/",
 	"short_name" : "Remi",
 	"theme_color" : "#317EFB",
 	"description" : "Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.",
 	"orientation" : "any",
 	"background_color" : "transparent",
 	"related_applications" : [],
-	"prefer_related_applications" : true,
+	"prefer_related_applications" : false,
 	"icons" : [
 		{
 			"src": "https://prueba-rl.azurewebsites.net/assets/img/brand/favicon144.png",

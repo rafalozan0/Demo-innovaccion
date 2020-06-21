@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
+  <meta name="description" content="Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.">
+  <meta name="author" content="Remi">
     <!-- Notificaciones -->
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
@@ -75,7 +75,6 @@
               <span class="nav-link-text">Usuarios</span>
               </a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="inventario.html">
                 <i class="ni ni-archive-2 text-orange"></i>
@@ -106,12 +105,8 @@
                 <span class="nav-link-text">Acerca de</span>
               </a>
             </li>
-            </ul>   
+            </ul>
           </ul>
-          <!-- Divider -->
-          <hr class="my-3">
-          
-        </div>
         </div>
       </div>
     </div>
@@ -141,34 +136,37 @@
   <!-- Main content -->
   <div class="main-content" id="panel">
 
-    <!-- Header -->
-    
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Acerca de</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-              </nav>
-            </div>
 
+
+    <!-- Header -->
+    <!-- Header -->
+    <div class="main-content" id="panel">
+
+      <!-- Header -->
+      
+      <!-- Header -->
+      <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+          <div class="header-body">
+            <div class="row align-items-center py-4">
+              <div class="col-lg-6 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Vista general</h6>
+                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                </nav>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Page content -->
-    <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col">
-          <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+      <!-- Page content -->
+      <div class="container-fluid mt--6">
+        <div class="row">
+          <div class="col">
+            <div class="card border-0">
+            </div>
           </div>
         </div>
-      </div>
       <!-- Footer -->
-       <!-- Footer -->
        <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
@@ -188,7 +186,8 @@
   <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
   <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
   <!-- Optional JS -->
- 
+  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
   <!-- Argon JS -->
   <script src="assets/js/argon.js?v=1.2.0"></script>
 </body>

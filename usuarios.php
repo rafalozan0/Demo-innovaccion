@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
+    <!-- Notificaciones -->
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
+    });
+  });
+</script>
+<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -35,7 +46,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="vistageneral.html">
+              <a class="nav-link" href="index.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -104,28 +115,6 @@
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -161,12 +150,14 @@
                   $nombre = $_POST['nombre'];
                   $apPaterno = $_POST['apPaterno'];
                   $apMaterno = $_POST['apMaterno'];
-                  $pasword = $_POST['pasword'];
+                  $contrasena = $_POST['contrasena'];
                   $idArea = $_POST['idArea'];
                   $idTipoUsuario = $_POST['idTipoUsuario'];
                   $idTelefono = $_POST['idTelefono'];
+                  $username = $_POST['username'];
 
-                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (idUsuario,nombre,apPaterno,apMaterno,pasword,idArea,idTipoUsuario,idTelefono) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$password','$idArea','$idTipoUsuario','$idTelefono)");      
+                  sqlsrv_query($conn, "INSERT INTO Usuario (idUsuario, nombre, apPaterno, apMaterno, contrasena, idArea, idTipoUsuario, idTelefono, username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");
+                  //mysqli_query($conexion, "INSERT INTO $tabla_db3 (idUsuario,nombre,apPaterno,apMaterno,contrasena,idArea,idTipoUsuario,idTelefono,username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Usuario registrado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>El usuario se dió de alta en el sistema de manera satisfactoria. Para registrar otro usuario pulse el botón siguiente.</h3></b></center></font><br><br>";
@@ -175,7 +166,7 @@
 
                 include("cerrar_conexion.php");
               ?>
-              <center><a href="registrousuarios.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
+              <center><a href="registrousuarios.html"><input type="button" value="Registrar usuario" class="btn btn-success"></a></center>
             
                      
             </div>

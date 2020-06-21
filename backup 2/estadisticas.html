@@ -28,6 +28,7 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -46,7 +47,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="vistageneral.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -75,7 +76,6 @@
               <span class="nav-link-text">Usuarios</span>
               </a>
             </li>
-
             <li class="nav-item">
               <a class="nav-link" href="inventario.html">
                 <i class="ni ni-archive-2 text-orange"></i>
@@ -97,7 +97,7 @@
             <li class="nav-item">
               <a class="nav-link" href="ranking.html">
                 <i class="ni ni-fat-remove text-default"></i>
-                <span class="nav-link-text">Ranking de fallas en equipo</span>
+                <span class="nav-link-text">Ranking de fallas en equipo.</span>
               </a>
             </li>
             <li class="nav-item">
@@ -111,7 +111,6 @@
           <!-- Divider -->
           <hr class="my-3">
           
-        </div>
         </div>
       </div>
     </div>
@@ -149,7 +148,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Acerca de</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Estadísticas de fallas</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               </nav>
             </div>
@@ -163,7 +162,58 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+            
+            
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="bg-success text-white text-center m-1">
+                            <div class="card-header">Total vendidos</div>
+                            <div class="card-body">
+                                <h5 class="h1 card-title"><span id="idVendidos">35</span></h5>
+                                <p class="card-text">Baja en las ventas vs mes anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-warning text-white text-center m-1">
+                            <div class="card-header">Total en almacen</div>
+                                <div class="card-body">
+                                <h5 class="h1 card-title"><span id="idAlmacen">35</span></h5>
+                                <p class="card-text">Inventario mayor vs el mes pasado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-info text-white text-center m-1">
+                            <div class="card-header">Total Ingresos</div>
+                                <div class="card-body">
+                                <h5 class="h1 card-title"><span id="idIngreso">35</span></h5>
+                                <p class="card-text">Disminución de ingresos vs mes anterior.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12 text-center">
+                        <h2>Reporte de ventas</h2>
+                        <canvas id="idGrafica" class="grafica"></canvas>
+                    </div>
+                </div>
+                <div class="row  my-3">
+                    <div class="col-md-12 text-center">
+                        <div id="idContTabla"></div>
+                    </div>
+                </div>
+            </div>
+        
+            <script src="js/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <script src="js/index.js"></script>
+            
+            </div>
           </div>
         </div>
       </div>

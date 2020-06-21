@@ -46,7 +46,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="vistageneral.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -112,7 +112,6 @@
           <hr class="my-3">
           
         </div>
-        </div>
       </div>
     </div>
   </nav>
@@ -149,7 +148,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Acerca de</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Empresas</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               </nav>
             </div>
@@ -163,7 +162,30 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
-            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
+              <?php
+                include("abrir_conexion.php");
+
+                if(isset($_POST['btn_registrar']))
+                {
+                  $IDReporte = $_POST['IDReporte'];
+                  $IDTipoReporte = $_POST['IDTipoReporte'];
+                  $Descripcion = $_POST['Descripcion'];
+                  $idEquipo = $_POST['idEquipo'];
+
+                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (IDReporte,IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
+
+                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
+                  echo "<br<br><br><br<br><br><font><center><b><h3>El reporte se completó de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
+
+                }
+
+                include("cerrar_conexion.php");
+              ?>
+              <center><a href="empresas.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
+            
+                     
+            </div>
           </div>
         </div>
       </div>
@@ -194,3 +216,4 @@
 </body>
 
 </html>
+

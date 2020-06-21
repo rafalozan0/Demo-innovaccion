@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
+    <!-- Notificaciones -->
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
+    });
+  });
+</script>
+<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -36,7 +47,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="vistageneral.html">
+              <a class="nav-link" href="index.html">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Vista general</span>
               </a>
@@ -101,6 +112,7 @@
           <hr class="my-3">
           
         </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -126,7 +138,6 @@
 </li>
 </div>
 <!-- FIN DE MENU DE HAMBUERGUESA -->
-
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -198,12 +209,12 @@
            
                 <div class="form-group">
                   <center><label for="tel">Fecha de expiración de garantía: </label></center>
-                  <input type="text" required name="FechaExpGarantia" placeholder="AAAA-MM-DD" class="form-control" id="tel">
+                  <input type="text" required name="fechaExpGarantia" placeholder="AAAA-MM-DD" class="form-control" id="tel">
                 </div>
 
                 <div class="form-group">
                   <center><label for="tel">Id del estado del equipo: </label></center>
-                  <input type="text" required name="IdStatus" placeholder="Ingrese la clave del estado del equipo.." class="form-control" id="tel">
+                  <input type="text" required name="idStatus" placeholder="Ingrese la clave del estado del equipo.." class="form-control" id="tel">
                 </div>
 
                 <div class="form-group">
@@ -221,11 +232,17 @@
                   <input type="text" required name="idTipo" placeholder="Ingrese la clave del tipo de equipo.." class="form-control" id="tel">
                 </div>
 
+                <div class="form-group">
+                  <center><label for="tel">Cantidad: </label></center>
+                  <input type="text" required name="cantidad" placeholder="Ingrese la clave del tipo de equipo.." class="form-control" id="tel">
+                </div>
+
                 <center>
                   <input type="submit" value="Enviar datos" class="btn btn-success" name="btn_registrar">
                 </center>
-              </form>
 
+              </form>
+              
             </center>
                 </div>
                 <div class="col-md-4"></div>
