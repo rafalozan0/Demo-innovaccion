@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
+  <meta name="description" content="Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.">
+  <meta name="author" content="Remi">
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -104,6 +104,28 @@
       </div>
     </div>
   </nav>
+
+
+<!-- MENU DE HAMBURGUESA -->
+<div>
+  <!-- Topnav -->
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+<div class="container-fluid"></div>
+<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+  <!-- Navbar links -->
+<ul class="navbar-nav align-items-center  ml-md-auto ">
+<li class="nav-item d-xl-none"></li>
+<!-- Sidenav toggler -->
+<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+<div class="sidenav-toggler-inner">
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+<i class="sidenav-toggler-line"></i>
+</div>
+</div>
+</li>
+</div>
+<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
