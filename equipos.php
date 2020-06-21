@@ -6,17 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-    <!-- Notificaciones -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
-    });
-  });
-</script>
-<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -112,32 +101,9 @@
           <hr class="my-3">
           
         </div>
-        </div>
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -165,38 +131,26 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
-                $NumeroSerie = $_POST['NumeroSerie'];
-                $Modelo = $_POST['Modelo'];
-                $IDNivelRiesgo = $_POST['IDNivelRiesgo'];
-                $IDEquipoArea = $_POST['IDEquipoArea'];
-                $claveCB= $_POST['claveCB'];
-                $nombre = $_POST['nombre'];
-                $descripcion = $_POST['descripcion'];
-                $fechaExpGarantia = $_POST['fechaExpGarantia'];
-                $idStatus = $_POST['idStatus'];
-                $nivelPrioridad = $_POST['nivelPrioridad'];
-                $idMarca = $_POST['idMarca'];
-                $idTipo = $_POST['idTipo'];
-                $cantidad = $_POST['cantidad'];
+                include("abrir_conexion.php");
 
                 if(isset($_POST['btn_registrar']))
                 {
-                                              
-                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
-                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
-                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
-                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
-                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
-                  if( $conn ) 
-                  {
-                    echo "Conexión establecida.<br />";
-                  }
-                  else
-                  {
-                    echo "Conexión no se pudo establecer.<br />";
-                  }
-                
-                  $sql = "exec agregarEquipo @NumeroSerie='$NumeroSerie', @Modelo='$Modelo', @IDNivelRiesgo='$IDNivelRiesgo', @IDEquipoArea='$IDEquipoArea', @claveCB='$claveCB', @nombre='$nombre', @descripcion='$descripcion', @fechaExpGarantia='$fechaExpGarantia', @idStatus='$idStatus', @nivelPrioridad='$nivelPrioridad', @idMarca='$idMarca', @idTipo='$idTipo', @cantidad='$cantidad';";
+                  $NumeroSerie = $_POST['NumeroSerie'];
+                  $Modelo = $_POST['Modelo'];
+                  $IDNivelRiesgo = $_POST['IDNivelRiesgo'];
+                  $IDEquipoArea = $_POST['IDEquipoArea'];
+                  $claveCB= $_POST['claveCB'];
+                  $nombre = $_POST['nombre'];
+                  $descripcion = $_POST['descripcion'];
+                  $FechaExpGarantia = $_POST['FechaExpGarantia'];
+                  $IdStatus = $_POST['IdStatus'];
+                  $nivelProridad = $_POST['nivelPrioridad'];
+                  $idMarca = $_POST['idMarca'];
+                  $idTipo = $_POST['idTipo'];
+                               
+
+                  mysqli_query($conexion, "INSERT INTO $tabla_db2 (NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,IdStatus,nivelProridad,idMarca,idTipo,IDNivelRiesgo) values ('$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$IdStatus','$nivelProridad','$idMarca','$idTipo','$IDNivelRiesgo')");      
+
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Equipo registrado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>El equipo se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
 

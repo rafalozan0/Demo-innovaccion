@@ -6,17 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-    <!-- Notificaciones -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
-    });
-  });
-</script>
-<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -154,10 +143,8 @@
                   $idArea = $_POST['idArea'];
                   $idTipoUsuario = $_POST['idTipoUsuario'];
                   $idTelefono = $_POST['idTelefono'];
-                  $username = $_POST['username'];
 
-                  sqlsrv_query($conn, "INSERT INTO Usuario (idUsuario, nombre, apPaterno, apMaterno, contrasena, idArea, idTipoUsuario, idTelefono, username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");
-                  //mysqli_query($conexion, "INSERT INTO $tabla_db3 (idUsuario,nombre,apPaterno,apMaterno,contrasena,idArea,idTipoUsuario,idTelefono,username) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono','$username')");      
+                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (idUsuario,nombre,apPaterno,apMaterno,contrasena,idArea,idTipoUsuario,idTelefono) values ('$idUsuario','$nombre','$apPaterno','$apMaterno','$contrasena','$idArea','$idTipoUsuario','$idTelefono)");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Usuario registrado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>El usuario se dió de alta en el sistema de manera satisfactoria. Para registrar otro usuario pulse el botón siguiente.</h3></b></center></font><br><br>";

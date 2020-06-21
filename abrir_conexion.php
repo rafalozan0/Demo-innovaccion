@@ -1,22 +1,24 @@
-<?php
-// PHP Data Objects(PDO) Sample Code:
-try {
-    $conn = new PDO("sqlsrv:server = tcp:remi-server.database.windows.net,1433; Database = Remi_database", "innova8662", "innova86#");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
- 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "innova8662", "pwd" => "innova86#", "Database" => "Remi_database", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:remi-server.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+<?php 
+	// Parametros a configurar para la conexion de la base de datos 
+	$host = "tcp:remi-server.database.windows.net,1433";    // sera el valor de nuestra BD 
+	$basededatos = "remiRemi_database";    // sera el valor de nuestra BD 
+	$usuariodb = "innova8662";    // sera el valor de nuestra BD 
+	$clavedb = "innova86#";    // sera el valor de nuestra BD 
 
-if($conn){
-	echo "Conexión exitosa";
-}else{
-	echo "Falló en la conexión";
-}
+	//Lista de Tablas
+	$tabla_db1 = "reporte"; 	   // tabla de usuarios
+	$tabla_db2 = "registrarequipo";
+	$tabla_db3 = "usuario";
+	$tabla_db4 = "empresa";
+
+	//error_reporting(0); //No me muestra errores
+	
+	$conexion = new mysqli($host,$usuariodb,$clavedb,$basededatos);
+
+
+	if ($conexion->connect_errno) {
+	    echo "Nuestro sitio experimenta fallos....";
+	    exit();
+	}
+
 ?>
