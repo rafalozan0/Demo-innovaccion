@@ -11,7 +11,7 @@
 	"orientation" : "any",
 	"background_color" : "transparent",
 	"related_applications" : [],
-	"prefer_related_applications" : false,
+	"prefer_related_applications" : true,
 	"icons" : [
 		{
 			"src": "https://prueba-rl.azurewebsites.net/assets/img/brand/favicon144.png",
