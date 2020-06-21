@@ -151,7 +151,7 @@
                   $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
                   $sql = "exec insertarReporte ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
-                  $resultado = $conn->query($sql);
+                  $resultado = $conn-> sqlsrv_query($sql);
                   if($resultado) 
                   {
                     echo "Conexión establecida.<br />";
