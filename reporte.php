@@ -150,12 +150,11 @@
                   //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
                   $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-                  $sql = "exec insertarReporte ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
-                  $resultado = $conn-> sqlsrv_query($sql);
-                  if($resultado) 
+                  
+                  if($conn) 
                   {
                     echo "Conexión establecida.<br />";
-                    
+                    $sql = "exec ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
                   }
                   else
                   {
