@@ -6,17 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-    <!-- Notificaciones -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
-    });
-  });
-</script>
-<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -112,32 +101,9 @@
           <hr class="my-3">
           
         </div>
-        </div>
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -165,36 +131,25 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
-                $marca = $_POST['marca'];
-                $idTelefono = $_POST['idTelefono'];
-                $direccion = $_POST['direccion'];              
+                include("abrir_conexion.php");
+
                 if(isset($_POST['btn_registrar']))
                 {
-                  $serverName =  "tcp:remi-server.database.windows.net,1433"; //serverName\instanceName
-                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
-                  $connectionInfo = array("UID" => "innova8662", "pwd" => "innova86#", "Database" => "prueba", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
-                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
-                  if( $conn ) 
-                  {
-                    echo "Conexión establecida.<br />";
-                    $sql = "exec agregarMarca @marca='$marca', @idTelefono='$idTelefono', @direccion='$direccion';";
-                  }
-                  else
-                  {
-                    echo "Conexión no se pudo establecer.<br />";
-                  }
-                
-                  //mysqli_query($conn, "INSERT INTO $tabla_db4 (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");      
+                  $marca= $_POST['marca'];
+                  $idTelefono = $_POST['idTelefono'];
+                  $direccion = $_POST['direccion'];
+                  
+
+                  mysqli_query($conexion, "INSERT INTO $tabla_db4 (marca, idTelefono, direccion) values ('$marca','$idTelefono','$direccion')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Registro generado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>La marca se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
-                  echo "$marca $idTelefono $direccion";
+
                 }
 
-                
+                include("cerrar_conexion.php");
               ?>
-              <center><a href="empresas.html"><input type="button" value="Registrar marca" class="btn btn-success"></a></center>
+              <center><a href="empresas.html"><input type="button" value="Registrar empresa" class="btn btn-success"></a></center>
             
                      
             </div>

@@ -6,17 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-    <!-- Notificaciones -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
-    });
-  });
-</script>
-<!-- Notificaciones -->
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -112,32 +101,9 @@
           <hr class="my-3">
           
         </div>
-        </div>
       </div>
     </div>
   </nav>
-
-
-<!-- MENU DE HAMBURGUESA -->
-<div>
-  <!-- Topnav -->
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-<div class="container-fluid"></div>
-<div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <!-- Navbar links -->
-<ul class="navbar-nav align-items-center  ml-md-auto ">
-<li class="nav-item d-xl-none"></li>
-<!-- Sidenav toggler -->
-<div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-<div class="sidenav-toggler-inner">
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-<i class="sidenav-toggler-line"></i>
-</div>
-</div>
-</li>
-</div>
-<!-- FIN DE MENU DE HAMBUERGUESA -->
   <!-- Main content -->
   <div class="main-content" id="panel">
 
@@ -165,6 +131,10 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
+                include("abrir_conexion.php");
+
+                if(isset($_POST['btn_registrar']))
+                {
                 $IDTipoReporte = $_POST['IDTipoReporte'];
                 $Descripcion = $_POST['Descripcion'];
                 $idEquipo = $_POST['idEquipo'];
@@ -176,34 +146,14 @@
                 $fechaReporteMantto = $_POST['fechaReporteMantto'];
                 $idUsuarioAsig = $_POST['idUsuarioAsig'];
 
-                if(isset($_POST['btn_registrar']))
-                {
-                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
-                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
-                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
-                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
-                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                  mysqli_query($conexion, "INSERT INTO $tabla_db1 (IDTipoReporte, Descripcion, idEquipo,horaRep,idArea,fechaRep,idCondReporte,IDUsuarioReporte,fechaReporteMantto,idUsuarioAsig) values ('$IDTipoReporte','$Descripcion','$idEquipo','$horaRep','$idArea','$fechaRep','$idCondReporte','$IDUsuarioReporte','$fechaReporteMantto','$idUsuarioAsig')");      
 
-                  
-                  if($conn) 
-                  {
-                    echo "Conexión establecida.<br />";
-                    $sql = "EXEC ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
-                  }
-                  else
-                  {
-                    echo "Conexión no se pudo establecer.<br />";
-                  }
-
-
-                  
-                  //sql_query($conexion, "INSERT INTO $tabla_db1 (IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
-
-                  echo "<br<br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
-                  echo "<br<br><br><br<br><br><font><center><b><h3>El reporte se completó de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
+                  echo "<br><br><br><br<br><br><font><center><b><h1>¡Reporte generado exitosamente!</h1></b></center></font>";
+                  echo "<br><br><br><br<br><br><font><center><b><h3>El reporte se completó de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
 
                 }
 
+                include("cerrar_conexion.php");
               ?>
               <center><a href="reporte.html"><input type="button" value="Generar reporte" class="btn btn-success"></a></center>
             

@@ -3,6 +3,9 @@
 ## Propuesta de Solución:
 ##### Diseñar un sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento. 
 ##### Por otra parte, se diseñará una aplicación móvil, que permita a los usuarios de equipo médico reportar de forma inmediata un equipo dañado, además de contar con una herramienta de comunicación con el área de mantenimiento para la solicitud de refacciones, consumibles o apoyo y notificar si el trabajo fue finalizado o no.
+## Link al Tik Tok:
+
+[https://www.tiktok.com/@franciscominajas/video/6840824518395563270](https://www.tiktok.com/@franciscominajas/video/6840824518395563270 "Tik Tok Remi")
 
 ## Tecnologías a Utilizar:
 - Machine Learning: Se utilizará para la generación de indicadores, así como ajustar la cantidad de tiempo y las fechas en las que es recomendable realizar mantenimientos.
