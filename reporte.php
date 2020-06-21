@@ -154,7 +154,7 @@
                   if($conn) 
                   {
                     echo "Conexión establecida.<br />";
-                    $sql = "exec ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
+                    $sql = "EXEC ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
                   }
                   else
                   {
