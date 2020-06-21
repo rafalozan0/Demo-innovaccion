@@ -131,27 +131,38 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
-                include("abrir_conexion.php");
+                $NumeroSerie = $_POST['NumeroSerie'];
+                $Modelo = $_POST['Modelo'];
+                $IDNivelRiesgo = $_POST['IDNivelRiesgo'];
+                $IDEquipoArea = $_POST['IDEquipoArea'];
+                $claveCB= $_POST['claveCB'];
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+                $fechaExpGarantia = $_POST['fechaExpGarantia'];
+                $idStatus = $_POST['idStatus'];
+                $nivelPrioridad = $_POST['nivelPrioridad'];
+                $idMarca = $_POST['idMarca'];
+                $idTipo = $_POST['idTipo'];
+                $cantidad = $_POST['cantidad'];
 
                 if(isset($_POST['btn_registrar']))
                 {
-                  $NumeroSerie = $_POST['NumeroSerie'];
-                  $Modelo = $_POST['Modelo'];
-                  $IDNivelRiesgo = $_POST['IDNivelRiesgo'];
-                  $IDEquipoArea = $_POST['IDEquipoArea'];
-                  $claveCB= $_POST['claveCB'];
-                  $nombre = $_POST['nombre'];
-                  $descripcion = $_POST['descripcion'];
-                  $FechaExpGarantia = $_POST['FechaExpGarantia'];
-                  $idStatus = $_POST['idStatus'];
-                  $nivelPrioridad = $_POST['nivelPrioridad'];
-                  $idMarca = $_POST['idMarca'];
-                  $idTipo = $_POST['idTipo'];
-                  $cantidad = $_POST['cantidad'];
-                               
-                  sqlsrv_query($conn, "INSERT INTO Equipo (NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,idStatus,nivelPrioridad,idMarca,idTipo,IDNivelRiesgo,cantidad) values ('$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$idStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");
-                  //mysqli_query($conexion, "INSERT INTO $tabla_db2 (IDEquipo,NumeroSerie,Modelo,IDNivelRiesgo,IDEquipoArea,claveCB,nombre,descripcion,FechaExpGarantia,IdStatus,nivelPrioridad,idMarca,idTipo,IDNivelRiesgo,cantidad) values ('$IDEquipo','$NumeroSerie','$Modelo','$IDNivelRiesgo','$IDEquipoArea','$claveCB','$nombre','$descripcion','$FechaExpGarantia','$IdStatus','$nivelPrioridad','$idMarca','$idTipo','$IDNivelRiesgo','$cantidad')");      
-
+                                              
+                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
+                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
+                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
+                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
+                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                  if( $conn ) 
+                  {
+                    echo "Conexión establecida.<br />";
+                  }
+                  else
+                  {
+                    echo "Conexión no se pudo establecer.<br />";
+                  }
+                
+                  $sql = "exec agregarEquipo @NumeroSerie='$NumeroSerie', @Modelo='$Modelo', @IDNivelRiesgo='$IDNivelRiesgo', @IDEquipoArea='$IDEquipoArea', @claveCB='$claveCB', @nombre='$nombre', @descripcion='$descripcion', @fechaExpGarantia='$fechaExpGarantia', @idStatus='$idStatus', @nivelPrioridad='$nivelPrioridad', @idMarca='$idMarca', @idTipo='$idTipo', @cantidad='$cantidad';";
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Equipo registrado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>El equipo se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
 
