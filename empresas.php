@@ -158,7 +158,7 @@
                   echo "$marca $idTelefono $direccion";
                 }
 
-                include("cerrar_conexion.php");
+                
               ?>
               <center><a href="empresas.html"><input type="button" value="Registrar marca" class="btn btn-success"></a></center>
             
