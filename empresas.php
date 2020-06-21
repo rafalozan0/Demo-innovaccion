@@ -131,21 +131,31 @@
           <div class="card border-0">
             <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
               <?php
-                include("abrir_conexion.php");
-
+                $marca = $_POST['marca'];
+                $idTelefono = $_POST['idTelefono'];
+                $direccion = $_POST['direccion'];              
                 if(isset($_POST['btn_registrar']))
                 {
-                  $marca = $_POST['marca'];
-                  $idTelefono = $_POST['idTelefono'];
-                  $direccion = $_POST['direccion'];
-                  $sql = "exec agregarMarca @marca='$marca', @idTelefono='$idTelefono', @direccion='$direccion'";
+                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
+                  //ESTE ES EL NOMBRE DE LA COMPUTADORA
+                  $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
+                  //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
+                  $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                  if( $conn ) 
+                  {
+                    echo "Conexión establecida.<br />";
+                  }
+                  else
+                  {
+                    echo "Conexión no se pudo establecer.<br />";
+                  }
                 
+                  $sql = "exec agregarMarca @marca='$marca', @idTelefono='$idTelefono', @direccion='$direccion';";
                   //mysqli_query($conn, "INSERT INTO $tabla_db4 (marca,idTelefono,direccion) values ('$marca','$idTelefono','$direccion')");      
 
                   echo "<br<br><br><br<br><br><font><center><b><h1>¡Registro generado exitosamente!</h1></b></center></font>";
                   echo "<br<br><br><br<br><br><font><center><b><h3>La marca se registró de manera satisfactoria. Para generar otro reporte pulse el botón siguiente.</h3></b></center></font><br><br>";
                   echo "$marca $idTelefono $direccion";
-
                 }
 
                 include("cerrar_conexion.php");
