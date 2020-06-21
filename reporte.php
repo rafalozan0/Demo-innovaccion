@@ -149,16 +149,20 @@
                   $connectionInfo = array( "Database"=>"Remi_database", "UID"=>"innova8662", "PWD"=>"innova86#");
                   //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
                   $conn = sqlsrv_connect( $serverName, $connectionInfo);
-                  if( $conn ) 
+
+                  $sql = "exec insertarReporte ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
+                  $resultado = $conn->query($sql);
+                  if($resultado) 
                   {
                     echo "Conexión establecida.<br />";
+                    
                   }
                   else
                   {
                     echo "Conexión no se pudo establecer.<br />";
                   }
 
-                  $sql = "exec insertarReporte ingresarReporte @IDTipoReporte='$IDTipoReporte', @Descripcion='$Descripcion', @idEquipo='$idEquipo', @horaRep='$horaRep', @idArea='$idArea', @fechaRep='$fechaRep', @idCondReporte='$idCondReporte', @IDUsuarioReporte='$IDUsuarioReporte', @fechaReporteMantto='$fechaReporteMantto', @idUsuarioAsig='$idUsuarioAsig';";
+
                   
                   //sql_query($conexion, "INSERT INTO $tabla_db1 (IDTipoReporte,Descripcion,idEquipo) values ('$IDReporte','$IDTipoReporte','$Descripcion','$idEquipo')");      
 
