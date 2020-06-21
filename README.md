@@ -6,6 +6,8 @@
 ## Link al Tik Tok:
 
 [https://www.tiktok.com/@franciscominajas/video/6840824518395563270](https://www.tiktok.com/@franciscominajas/video/6840824518395563270 "Tik Tok Remi")
+## pruebalo:
+https://remi-demo.azurewebsites.net/
 
 ## Tecnologías a Utilizar:
 - Machine Learning: Se utilizará para la generación de indicadores, así como ajustar la cantidad de tiempo y las fechas en las que es recomendable realizar mantenimientos.
