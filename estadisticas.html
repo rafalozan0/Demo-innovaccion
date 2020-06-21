@@ -4,19 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-    <!-- Notificaciones -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "4bebb19f-33c1-44cd-8566-b8e1f0922ed9",
-    });
-  });
-</script>
-<!-- Notificaciones -->
+  <meta name="description" content="Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.">
+  <meta name="author" content="Remi">
   <title>Remi</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
@@ -112,7 +101,6 @@
           <hr class="my-3">
           
         </div>
-        </div>
       </div>
     </div>
   </nav>
@@ -163,21 +151,22 @@
       <div class="row">
         <div class="col">
           <div class="card border-0">
+            <div id="map-default" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;">
             
               <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="bg-success text-white text-center m-1">
-                            <div class="card-header">Total vendidos</div>
+                            <div class="card-header">Total fallas</div>
                             <div class="card-body">
                                 <h5 class="h1 card-title"><span id="idVendidos">35</span></h5>
-                                <p class="card-text">Baja en las ventas vs mes anterior</p>
+                                <p class="card-text">Fallas de equipos vs mes anterior</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="bg-warning text-white text-center m-1">
-                            <div class="card-header">Total en almacen</div>
+                            <div class="card-header">Total de equipos en almacén</div>
                                 <div class="card-body">
                                 <h5 class="h1 card-title"><span id="idAlmacen">35</span></h5>
                                 <p class="card-text">Inventario mayor vs el mes pasado.</p>
@@ -186,18 +175,17 @@
                     </div>
                     <div class="col-md-4">
                         <div class="bg-info text-white text-center m-1">
-                            <div class="card-header">Total Ingresos</div>
+                            <div class="card-header">Total Equipos</div>
                                 <div class="card-body">
                                 <h5 class="h1 card-title"><span id="idIngreso">35</span></h5>
-                                <p class="card-text">Disminución de ingresos vs mes anterior.</p>
+                                <p class="card-text">Disminución de equipos vs mes anterior.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row my-3">
-                  
                     <div class="col-md-12 text-center">
-                        <h2>Reporte de ventas</h2>
+                        <h2>Reporte de fallas</h2>
                         <canvas id="idGrafica" class="grafica"></canvas>
                     </div>
                 </div>
