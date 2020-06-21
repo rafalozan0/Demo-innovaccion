@@ -136,9 +136,9 @@
                 $direccion = $_POST['direccion'];              
                 if(isset($_POST['btn_registrar']))
                 {
-                  $serverName = "remi-server.database.windows.net"; //serverName\instanceName
+                  $serverName =  "tcp:remi-server.database.windows.net,1433"; //serverName\instanceName
                   //ESTE ES EL NOMBRE DE LA COMPUTADORA
-                  $connectionInfo = array( "Database"=>"prueba", "UID"=>"innova8662", "PWD"=>"innova86#");
+                  $connectionInfo = array("UID" => "innova8662", "pwd" => "innova86#", "Database" => "prueba", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
                   //AQUI VA EL NOMBRE DE LA BASE DE DATOS, EL NOMBRE DEL LOGIN CREADO EN SQLSERVER Y SU CONTRASEÑA
                   $conn = sqlsrv_connect( $serverName, $connectionInfo);
                   if( $conn ) 
