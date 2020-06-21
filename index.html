@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Sistema web capaz de monitorizar los mantenimientos y/o revisiones que se realizan de forma rutinaria en un hospital, además de dar aviso al área de mantenimiento en caso de existir un reporte de falla, así mismo el sistema proporcionara indicadores que permitirán disminuir o incrementar dichas rutinas de mantenimiento.">
   <meta name="author" content="Remi">
+  <link rel='manifest' href='/manifest.json'>
+  <link rel="apple-touch-icon" href="assets/img/brand/iosicon.png">
+  <meta name="theme-color" content="#317EFB"/>
+  <script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"
+></script>
+ <script type="module">
+import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+const el = document.createElement('pwa-update');
+document.body.appendChild(el);
+
+</script>
+
+
+<pwa-install></pwa-install>
     <!-- Notificaciones -->
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
